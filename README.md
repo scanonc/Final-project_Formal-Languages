@@ -243,30 +243,6 @@ All test cases comply with the project specifications.
 
 ---
 
-## Problems Encountered and Solutions
-
-### Problem 1: Epsilon Production Handling
-**Issue**: Initial implementation didn't correctly handle epsilon productions in FIRST and FOLLOW computations.
-
-**Solution**: Added explicit checks for `len(prod) == 1 and prod[0] == 'e'` to properly identify epsilon productions and handle them separately in the algorithms.
-
-### Problem 2: SLR(1) Closure Computation
-**Issue**: The closure function wasn't correctly handling the augmented start symbol S' when building LR(0) items.
-
-**Solution**: Modified `_closure()` to accept a set of all nonterminals (including S') as a parameter, ensuring proper closure computation for all items.
-
-### Problem 3: Parser State Management
-**Issue**: LL(1) parser wasn't correctly handling the end-of-input marker ($) in all cases.
-
-**Solution**: Improved the termination condition in `parse_ll1()` to correctly verify that all input has been consumed when $ is matched.
-
-### Problem 4: Input/Output Format
-**Issue**: Original implementation included extra prompts and messages not specified in the project requirements.
-
-**Solution**: Removed all unnecessary messages and prompts to match the exact specification format, ensuring clean input/output for automated testing.
-
----
-
 ## References
 
 - Aho, Alfred V. et al. *Compilers: Principles, Techniques, and Tools* (2nd Edition). USA: Addison-Wesley Longman Publishing Co., Inc., 2006. ISBN: 0321486811.
